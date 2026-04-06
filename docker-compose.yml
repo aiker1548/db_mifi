@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: sql_hw_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: student
+      POSTGRES_PASSWORD: student
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init/postgres:/docker-entrypoint-initdb.d
+
+  adminer:
+    image: adminer
+    container_name: sql_hw_adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+      - postgres
+
+volumes:
+  postgres_data:

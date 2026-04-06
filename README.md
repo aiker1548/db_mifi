@@ -8,7 +8,7 @@
 
 ```
 sql-homework/
-├── docker-compose.yml          # Запуск MySQL + PostgreSQL + Adminer
+├── docker-compose.yml          # Запуск PostgreSQL + Adminer
 ├── init/
 │   └── postgres/
 │       └── 01_init.sql         # Создание всех БД, таблиц и тестовых данных (PostgreSQL)
